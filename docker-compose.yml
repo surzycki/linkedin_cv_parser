@@ -1,0 +1,9 @@
+dev:
+  build: .
+  dockerfile: Dockerfile.dev
+  volumes:
+    - .:/var/www
+
+
+
+

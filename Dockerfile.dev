@@ -1,0 +1,31 @@
+# Therapeutes development
+#
+# VERSION               0.0.1
+FROM quay.io/surzycki/rails4.2.1-dev
+MAINTAINER Stefan Surzycki <stefan.surzycki@gmail.com>
+
+# set environment vars
+ENV APP_HOME /var/www
+ENV COMPOSE_PROJECT_NAME linkedin_cv_parser
+ENV HOSTNAME app_web
+
+# install dependancies
+RUN apt-get update
+
+# setup for app
+RUN mkdir -p $APP_HOME
+WORKDIR $APP_HOME
+
+# update npm
+RUN npm install npm -g
+
+# update gems
+ADD Gemfile $APP_HOME/Gemfile
+ADD Gemfile.lock $APP_HOME/Gemfile.lock
+# hook up source files
+ADD . $APP_HOME
+
+RUN bundle install
+
+
+
