@@ -8,20 +8,22 @@ class LinkedinCvParser
       @data         = file_reader.convert_to_text
       @headers      = Array.new
       @results      = Array.new
+
+      parse
     end
 
     # TODO brutish
     def parse
       remove_extra_headers
       parse_data
-      #append_basic_information
+      append_personal_information
     end
 
     protected
     def remove_extra_headers
-      dataheader = [data[0],data[1],data[2]]
+      @personal_information = [data[0],data[1],data[2]]
 
-      result = (@data - dataheader)
+      result = (@data - @personal_information)
       @data  = result
     end
 
@@ -116,8 +118,18 @@ class LinkedinCvParser
         end
       end
 
-      pp @results
+      #pp @results
       #pp specialsections
+    end
+
+    def append_personal_information
+      summary = (@results.select {|section| section[:head] == 'Summary' }).first
+      # add fullname
+      summary[:sections].push({head: 'Fullname', text: @personal_information[0]})
+      # add location
+      summary[:sections].push({head: 'Location', text: @personal_information[1]})
+      # add current_position
+      summary[:sections].push({head: 'Position', text: @personal_information[2]})
     end
   end
 end

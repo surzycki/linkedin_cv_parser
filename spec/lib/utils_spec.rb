@@ -112,4 +112,44 @@ describe LinkedinCvParser::Utils do
       end
     end
   end
+
+
+  describe '.parse_date' do
+    context 'format (month YYYY)' do
+      it 'returns date' do
+        expect(subject.parse_date 'June 2003').to eq(DateTime.new(2003,6))
+      end
+    end
+
+
+    context 'format (YYYY)' do
+      it 'returns date' do
+        expect(subject.parse_date '2003').to eq(DateTime.new(2003))
+      end
+    end
+
+
+    context 'format (Present)' do
+      before { Timecop.freeze(Time.local(2016, 9)) }
+      after  { Timecop.return }
+
+      it 'returns date' do
+        expect(subject.parse_date 'Present').to eq(DateTime.new(2016, 9))
+      end
+    end
+
+
+    context 'format (nil)' do
+      it 'returns nil' do
+        expect(subject.parse_date nil).to be_nil
+      end
+    end
+
+
+    context 'format (blank)' do
+      it 'returns nil' do
+        expect(subject.parse_date '').to be_nil
+      end
+    end
+  end
 end

@@ -20,6 +20,18 @@ class LinkedinCvParser
       def page_number?(line)
         (line == 'Page') || (Float(line) != nil rescue false)
       end
+
+      def parse_date(value)
+        begin
+          if value.downcase == 'present'
+            DateTime.now
+          else
+            DateTime.strptime(value, '%B %Y') rescue Date.strptime(value, '%Y')
+          end
+        rescue
+          nil
+        end
+      end
     end
   end
 end

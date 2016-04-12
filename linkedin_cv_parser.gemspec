@@ -29,10 +29,12 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "pdf-reader"
 
+
   spec.add_development_dependency "bundler", "~> 1.9.5"
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "rspec", "~> 3.0"
   spec.add_development_dependency "guard", "~> 2.13.0"
   spec.add_development_dependency "guard-rspec"
+  spec.add_development_dependency "timecop"
   spec.add_development_dependency "byebug"
 end
