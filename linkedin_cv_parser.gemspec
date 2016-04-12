@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["stefan"]
   spec.email         = ["stefan.surzycki@gmail.com"]
 
-  spec.summary       = %q{TODO: Write a short summary, because Rubygems requires one.}
-  spec.description   = %q{TODO: Write a longer description or delete this line.}
-  spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.summary       = %q{Parsing PDF CV's from LinkedIn Recruiter Account}
+  spec.description   = %q{This gem parses linkedIn CV's downloaded via the Recruiter Account. This pdf format differs from the standard pdf downloaded via a standard LinkedIn User's account}
+  spec.homepage      = ""
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
