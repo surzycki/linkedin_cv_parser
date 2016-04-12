@@ -1,4 +1,4 @@
-describe LinkedinCvParser::Education, focus: true do
+describe LinkedinCvParser::Education do
   let(:section)  {{ head: [], text: '' }}
   let(:subject)  { LinkedinCvParser::Education.new(section) }
 
