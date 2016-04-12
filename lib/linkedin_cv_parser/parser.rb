@@ -118,7 +118,7 @@ class LinkedinCvParser
         end
       end
 
-      pp @results
+      #pp @results
       #pp specialsections
     end
 

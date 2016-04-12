@@ -14,7 +14,7 @@ describe LinkedinCvParser do
   end
 
 
-  it 'has a fullname', focus: true do
+  it 'has a fullname' do
     expected_fullname = 'Javier Torres'
     expect(subject.fullname).to eq expected_fullname
   end

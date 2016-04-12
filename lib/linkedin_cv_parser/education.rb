@@ -1,4 +1,5 @@
 class LinkedinCvParser
+  # TODO: put section knowledge in formatter
   class Education
     def initialize(section)
       @section = section

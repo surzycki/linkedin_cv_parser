@@ -39,6 +39,8 @@ Basic usage
     experience = parser.experiences.first
 
     experience.title              => 'Business Operations and Demand Generation Director, Spain & Portugal at Oracle'
+    experience.company            => 'Oracle'
+    experience.position           => 'Business Operations and Demand Generation Director, Spain & Portugal'
     experience.start_date         => DateTime
     experience.end_date           => DateTime
 

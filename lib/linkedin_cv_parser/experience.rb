@@ -1,4 +1,5 @@
 class LinkedinCvParser
+  # TODO: put section knowledge in formatter
   class Experience
     def initialize(section)
       @section = section
@@ -12,11 +13,18 @@ class LinkedinCvParser
       @description ||= section[:text]
     end
 
+    def company
+      @company ||= get_company
+    end
+
+    def position
+      @position ||= get_postition
+    end
+
     def start_date
       dates = get_dates(section[:head][1])
       @start_date ||= Utils.parse_date dates[0]
     end
-
 
     def end_date
       dates = get_dates(section[:head][1])
@@ -35,6 +43,14 @@ class LinkedinCvParser
     def get_dates(value)
       value = value.gsub(/\(([^\)]+)\)/,'')
       value.split('-').map(&:strip)
+    end
+
+    def get_company
+      title.split('at').map(&:strip)[1]
+    end
+
+    def get_postition
+      title.split('at').map(&:strip)[0]
     end
   end
 end

@@ -13,6 +13,16 @@ describe LinkedinCvParser::Experience do
     end
 
 
+    it 'has a company' do
+      expect(subject).to respond_to :company
+    end
+
+
+    it 'has a position' do
+      expect(subject).to respond_to :position
+    end
+
+
     it 'has a start_date' do
       expect(subject).to respond_to :start_date
     end
@@ -43,6 +53,16 @@ describe LinkedinCvParser::Experience do
 
     it 'returns description' do
       expect(subject.description).to eq 'Analyzed critical strategic issues for some of the top companies'
+    end
+
+
+    it 'returns company' do
+      expect(subject.company).to eq 'Robert Bosch GmbH'
+    end
+
+
+    it 'returns position' do
+      expect(subject.position).to eq 'Software Tester intern'
     end
 
 
