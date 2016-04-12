@@ -9,7 +9,8 @@ class LinkedinCvParser
           'Skills & Expertise',
           'Education',
           'person has recommended',
-          'people have recommended'
+          'people have recommended',
+          'Profile Notes and Activity'
         ]
       end
 
@@ -24,8 +25,8 @@ class LinkedinCvParser
         [ 'Skills & Expertise' ]
       end
 
-      def onelinesections
-        [  ]
+      def specialsections
+        [ 'Education' ]
       end
 
       def lineLength() 99 end

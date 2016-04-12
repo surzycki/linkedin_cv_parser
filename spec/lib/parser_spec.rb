@@ -37,11 +37,22 @@ describe LinkedinCvParser::Parser do
     end
 
 
-    it 'returns summary', focus: true do
+    it 'returns Summary' do
       expected_summary = 'Professional with significant international experience in the IT and Management'
       actual_summary   = subject.results.first[:text]
-      expect(1).to eq 1
-      #expect(actual_summary).to include  expected_summary
+      expect(actual_summary).to include expected_summary
+    end
+
+
+    it 'returns Experience' do
+      experience_section = (subject.results.select {|section| section[:head] == 'Experience' }).first
+
+      expect(experience_section[:sections].count).to eq 9
+    end
+
+
+    it 'returns Education', focus: true do
+      education_section = (subject.results.select {|section| section[:head] == 'Education' }).first
     end
   end
 end

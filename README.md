@@ -1,8 +1,8 @@
 # LinkedinCvParser
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/linkedin_cv_parser`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem parses linkedIn CV's downloaded via the **Recruiter Account**.
+This pdf format differs from the *standard* pdf downloaded via
+a standard LinkedIn User's account
 
 ## Installation
 
@@ -22,7 +22,34 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+Basic usage
+
+    parser = LinkedinCvParser.new(path/to/file.pfd)
+
+    # Summary
+    parser.fullname               => 'Jorge Torres'
+    parser.current_position       => 'Business Operations Vice President, Europe, Middle East and Africa at Oracle'
+    parser.location               => 'Madrid Area, Spain'
+    parser.summary                => 'Professional with significant international experience in the IT and Management Consulting Services...'
+
+    parser.experiences            => [ LinkedinCvParser::Experience, LinkedinCvParser::Experience, LinkedinCvParser::Experience]
+    parser.educations             => [ LinkedinCvParser::Education, LinkedinCvParser::Education, LinkedinCvParser::Education]
+
+    # Experiences
+    experience = parser.experiences.first
+
+    experience.title              => 'Business Operations and Demand Generation Director, Spain & Portugal at Oracle'
+    experience.start_date         => DateTime
+    experience.end_date           => DateTime
+
+    # Educations
+    education = parser.educations.first
+
+    education.univeristy          => 'Massachusetts Institute of Technology - Sloan School of Management'
+    education.degree              => 'MBA'
+    education.field_of_study      => 'Mathematics'
+    education.start_date          => DateTime
+    education.end_date            => DateTime
 
 ## Development
 
@@ -32,7 +59,7 @@ To install this gem onto your local machine, run `bundle exec rake install`. To 
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/linkedin_cv_parser.
+Bug reports and pull requests are welcome on GitHub at https://github.com/surzycki/linkedin_cv_parser.
 
 
 ## License
