@@ -46,11 +46,11 @@ class LinkedinCvParser
     end
 
     def get_company
-      title.split('at').map(&:strip)[1]
+      title.split(' at ').map(&:strip)[1]
     end
 
     def get_postition
-      title.split('at').map(&:strip)[0]
+      title.split(' at ').map(&:strip)[0]
     end
   end
 end

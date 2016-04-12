@@ -40,14 +40,14 @@ describe LinkedinCvParser::Experience do
 
   describe 'return values' do
     let(:section)  {{
-      head: ['Software Tester intern at Robert Bosch GmbH', 'June 2003 - August 2003 (3 months)'],
+      head: ['Software Tatertot intern at Robert Bosch GmbH', 'June 2003 - August 2003 (3 months)'],
       text: 'Analyzed critical strategic issues for some of the top companies'
     }}
 
 
 
     it 'returns title' do
-      expect(subject.title).to eq 'Software Tester intern at Robert Bosch GmbH'
+      expect(subject.title).to eq 'Software Tatertot intern at Robert Bosch GmbH'
     end
 
 
@@ -62,7 +62,7 @@ describe LinkedinCvParser::Experience do
 
 
     it 'returns position' do
-      expect(subject.position).to eq 'Software Tester intern'
+      expect(subject.position).to eq 'Software Tatertot intern'
     end
 
 
