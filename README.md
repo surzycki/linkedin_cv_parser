@@ -24,7 +24,7 @@ Or install it yourself as:
 
 Basic usage
 
-    parser = LinkedinCvParser.new(path/to/file.pfd)
+    parser = LinkedinCvParser.new("path/to/file.pdf")
 
     # Summary
     parser.fullname               => 'Jorge Torres'
