@@ -1,6 +1,4 @@
 require 'pdf-reader'
-require 'byebug'
-
 
 require 'linkedin_cv_parser/version'
 require 'linkedin_cv_parser/utils'
