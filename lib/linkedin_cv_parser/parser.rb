@@ -17,6 +17,7 @@ class LinkedinCvParser
       remove_extra_headers
       parse_data
       append_personal_information
+      #pp @results
     end
 
     protected
@@ -118,12 +119,31 @@ class LinkedinCvParser
         end
       end
 
-      #pp @results
-      #pp specialsections
+      # parse specialsections
+      education_section     = (@results.select {|section| section[:head] == 'Education' }).first
+      current_section_index = -1
+
+      specialsections.each do |line|
+        next if Utils.skip_line? line
+
+        if Utils.degree_line? line
+          education_section[:sections][current_section_index][:text] = line
+        else
+          education_section[:sections].push({head: line, text: '', sections: []})
+          current_section_index += 1
+        end
+      end
     end
 
     def append_personal_information
       summary = (@results.select {|section| section[:head] == 'Summary' }).first
+
+      # sometimes there is not a summary section lets create one
+      unless summary
+        @results.push( { head: 'Summary', text: '', sections: [] } )
+        summary = (@results.select {|section| section[:head] == 'Summary' }).first
+      end
+
       # add fullname
       summary[:sections].push({head: 'Fullname', text: @personal_information[0]})
       # add location

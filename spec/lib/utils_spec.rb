@@ -37,10 +37,12 @@ describe LinkedinCvParser::Utils do
     end
   end
 
+
   describe '.skip_line?' do
     it 'returns true' do
       [
         'Contact Jorge on LinkedIn',
+        'Activites and Societies'
       ].each do |line|
         expect(subject.skip_line? line).to be true
       end
@@ -54,6 +56,37 @@ describe LinkedinCvParser::Utils do
         'Massachusetts Institute of Technology - Sloan School of Management'
       ].each do |line|
         expect(subject.skip_line? line).to be false
+      end
+    end
+  end
+
+
+  describe '.degree_line?' do
+    it 'returns true' do
+      [
+        'MBA, 2006-2008',
+        'MBA, Business, 2006-2008',
+        'Hello 2001-2012',
+        'Hi there 2001 - 2001',
+        'Masters in some field',
+        'BS in antoher field',
+        'Diploma in eating',
+        'Bachelor in throwing',
+        'CEMS'
+      ].each do |line|
+        expect(subject.degree_line? line).to be true
+      end
+    end
+
+
+    it 'returns false' do
+      [
+        'Duke Univeristy',
+        'Columbia School of Business',
+        'Homer Simpson',
+        '34 Great School',
+      ].each do |line|
+        expect(subject.degree_line? line).to be false
       end
     end
   end

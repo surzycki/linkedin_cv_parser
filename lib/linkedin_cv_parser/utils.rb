@@ -1,16 +1,29 @@
+# -*- encoding : utf-8 -*-
 class LinkedinCvParser
   class Utils
     class << self
       def header?(line)
-        Schema.headers.include?(line) || line.include?('Profile Notes and Activity')
+        Schema.headers.include?(line) || line.include?('Profile Notes and Activity') || recommendation?(line)
       end
 
       def recommendation?(line)
         line.include?('person has recommended') || line.include?('people have recommended')
       end
 
+
+      def degree_line?(line)
+        trigger_word  = %w{ MBA Master BS Diploma Bachelor CEMS }.any? { |degree| line.include? degree }
+        year_format_1 = !!(line =~ /(\d{4}-\d{4})/)
+        year_format_2 = !!(line =~ /(\d{4} - \d{4})/)
+
+        (trigger_word || year_format_1 || year_format_2)
+      end
+
       def skip_line?(line)
-        !!(line =~ /^Contact [\w]+ on LinkedIn$/)
+        trigger_word = ['Activites and Societies'].any? { |degree| line.include? degree }
+        watermark    = !!(line =~ /^Contact [\w]+ on LinkedIn$/)
+
+        (trigger_word || watermark)
       end
 
       def duration?(line)

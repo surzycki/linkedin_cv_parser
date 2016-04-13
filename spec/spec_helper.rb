@@ -6,6 +6,7 @@ require 'bundler/setup'
 require 'linkedin_cv_parser'
 require 'timecop'
 
+
 ENV["TESTING_VIA_RSPEC"] = "true"
 
 RSpec.configure do |config|

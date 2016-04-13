@@ -10,7 +10,8 @@ class LinkedinCvParser
           'Education',
           'person has recommended',
           'people have recommended',
-          'Profile Notes and Activity'
+          'Profile Notes and Activity',
+          'Interests'
         ]
       end
 
