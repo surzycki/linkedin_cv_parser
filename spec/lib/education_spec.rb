@@ -3,8 +3,8 @@ describe LinkedinCvParser::Education do
   let(:subject)  { LinkedinCvParser::Education.new(section) }
 
   describe 'attributes' do
-    it 'has a univeristy' do
-      expect(subject).to respond_to :univeristy
+    it 'has a university' do
+      expect(subject).to respond_to :university
     end
 
 
@@ -37,8 +37,8 @@ describe LinkedinCvParser::Education do
       }}
 
 
-      it 'returns univeristy' do
-        expect(subject.univeristy).to eq 'Universidad Nacional de Educacion a Distancia - U.N.E.D.'
+      it 'returns university' do
+        expect(subject.university).to eq 'Universidad Nacional de Educacion a Distancia - U.N.E.D.'
       end
 
 
@@ -70,8 +70,8 @@ describe LinkedinCvParser::Education do
       }}
 
 
-      it 'returns univeristy' do
-        expect(subject.univeristy).to eq 'Universidad Nacional de Educacion a Distancia - U.N.E.D.'
+      it 'returns university' do
+        expect(subject.university).to eq 'Universidad Nacional de Educacion a Distancia - U.N.E.D.'
       end
 
 

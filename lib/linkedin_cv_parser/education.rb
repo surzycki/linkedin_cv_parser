@@ -5,8 +5,8 @@ class LinkedinCvParser
       @section = section
     end
 
-    def univeristy
-      @univeristy ||= section[:head]
+    def university
+      @university ||= section[:head]
     end
 
     def degree
